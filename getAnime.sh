@@ -50,7 +50,7 @@ i=0
 for video in $(cat $anime.txt)
 do
 ((i=i+1))
-ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -headers 'User-Agent: Mozilla' -i $video -c copy $anime"_"$i.mkv
+ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -headers 'User-Agent: Mozilla' -i $video -map 0 -c copy -c:a aac $anime"_"$i.mkv
 
 done
 
